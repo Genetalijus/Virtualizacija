@@ -1,0 +1,42 @@
+body {
+  font-family: "Source Sans Pro", sans-serif;
+  background-color: #00998a;
+}
+
+.login {
+  margin: auto;
+  margin-top: 10%;
+  background: #ffffff;
+  border-radius: 20px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  width: 15%;
+  height: 20em;
+  padding: 5em;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+}
+
+.login #uname,
+.login #pword {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+}
+
+.login #uname input,
+.login #pword input {
+  border: none;
+  border-bottom: 2px solid #00998a;
+}
+/*# sourceMappingURL=login.css.map */

@@ -1,0 +1,156 @@
+$header: #77a6d7;
+$text: #ffffff;
+$button: #00998a;
+$font: "Source Sans Pro", sans-serif;
+body {
+  margin: 0px;
+  padding: 0px;
+  width: 100%;
+  height:100%;
+  font-family: $font;
+overflow-x: hidden;rflow-x: hidden;
+}
+%buttonStyle {
+  border: none;
+  background-color: $button;
+
+  width: 8em;
+  height: 4em;
+  border-radius: 1em;
+  span {
+    color: $text;
+    font-weight: bold;
+    font-size: 18px;
+  }
+}
+.header {
+  width: 100%;
+  height: 8em;
+  display: flex;
+  flex-direction: row;
+
+  justify-content: space-between;
+  align-items: center;
+  background:linear-gradient(to right,$header 40%, $text 120%);
+  #left {
+    margin-left: 10%;
+    h1 {
+      color: $text;
+      font-size: 40px;
+    }
+  }
+  #right {
+    margin-right: 10%;
+
+    button {
+      @extend %buttonStyle;
+    }
+  }
+}
+
+.front {
+  width: 100%;
+  height: 30em;
+  overflow: hidden;
+  position: relative;
+  img {
+    width: 100%;
+    height: 150%;
+    object-fit: none;
+    object-position: 40% 60%;
+    min-height: 30em;
+    filter: blur(2px);
+  }
+  #buttons {
+    position: absolute;
+    z-index: 2;
+    left: 10%;
+    top: 40%;
+
+    h1 {
+      font-size: 60px;
+      color: $text;
+      text-shadow: 3px 3px black;
+    }
+    button {
+      @extend %buttonStyle;
+    }
+  }
+}
+
+.content {
+  margin: auto;
+  width: 90%;
+  height: 15em;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  margin-top: 5em;
+  #card {
+  
+    width: 11em;
+    height: 10em;
+    text-align: center;
+    border-radius: 20px; padding: 10px;  
+
+
+
+    h2{
+        border-bottom:1px solid black;
+       padding-bottom: 10px;
+        color:$button;
+    }
+  }
+}
+
+.footer{
+    
+    width: 100%;
+    height:6.5em;
+    text-align: center;
+    background: $button;
+    padding-top:10px;
+    color:$text;
+}
+
+
+@media screen and (max-width: 900px) {
+
+    .header{
+        #left{
+            margin:0px;
+        }
+        #right{
+            margin:0px;
+        }
+    }
+   
+        .content {
+            position: relative;
+            margin: auto;
+            width: 100%;
+            height: 50em;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            margin-top: 5em;
+            #card {
+            
+              width: 100%;;
+              height: 10em;
+              text-align: center;
+              border-radius: 20px; padding: 10px;  
+          
+          
+          
+              h2{
+                  border-bottom:1px solid black;
+                 padding-bottom: 10px;
+                  color:$button;
+              }
+            }
+          }
+          .footer{
+              width:100%
+          }
+}
