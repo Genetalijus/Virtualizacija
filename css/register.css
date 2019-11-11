@@ -1,4 +1,19 @@
+body {
+  background-color: #00998a;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -ms-flex-line-pack: center;
+      align-content: center;
+}
+
 .cont {
+  border-radius: 2em;
+  margin-top: 5em;
+  padding: 6em;
   width: 20%;
   display: -webkit-box;
   display: -ms-flexbox;
@@ -7,5 +22,51 @@
   -webkit-box-direction: normal;
       -ms-flex-direction: column;
           flex-direction: column;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  background-color: white;
+  width: 40%;
+  height: 30em;
+}
+
+.cont .uname, .cont .email, .cont .pword, .cont .cnfpword {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+.cont .uname input, .cont .email input, .cont .pword input, .cont .cnfpword input {
+  width: 20em;
+  background-color: none;
+  border: none;
+  border-bottom: 2px solid #00998a;
+  height: 2em;
+}
+
+.cont button {
+  width: 20em;
+  height: 5em;
+  background-color: #00998a;
+  border: none;
+  border-radius: 2em;
+  color: white;
+}
+
+.cont button p {
+  font-size: 20px;
 }
 /*# sourceMappingURL=register.css.map */

@@ -1,6 +1,48 @@
-.cont{
-    width: 20%;
-    display: flex;
-    flex-direction: column;
+$header: #77a6d7;
+$text: #ffffff;
+$button: #00998a;
 
+body{
+    background-color:$button;
+    display: flex;
+    justify-content: center;
+    align-content: center;
+}
+.cont {
+    border-radius: 2em;
+    margin-top: 5em;
+    $padding:6em;
+    padding: $padding;
+  width: 20%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  background-color: white;
+  width: 40%;
+    height:30em;
+    .uname,.email,.pword,.cnfpword{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        input{
+            width:20em;
+            background-color: none;
+            border:none;
+            border-bottom: 2px solid $button;
+            height: 2em;
+        }
+       
+    } button{
+            width:20em;
+            height: 5em;
+            background-color: $button;
+            border:none;
+            border-radius: 2em;
+            color:white;
+            p{
+                font-size: 20px;
+            }
+        }
 }
