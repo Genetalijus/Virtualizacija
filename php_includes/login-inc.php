@@ -37,7 +37,22 @@ if(isset($_POST['submit'])){
                 $_SESSION['u_id'] = $row['user_id'];
                 $_SESSION['u_username'] = $row['username'];
                 $_SESSION['u_email'] = $row['email'];
-                 header("Location: http://localhost/Virtualizacija/pages/user/user.php");
+                
+                 
+                    $user_data = "select * from users where username ='$username'";
+                    $userType = mysqli_query($conn, $user_data);
+                    $row = mysqli_fetch_assoc($userType);
+
+                    $type = $row['userType'];
+
+                    if($type == 'doctor'){
+                        header("Location: http://localhost/Virtualizacija/pages/doctor/doctor.php"); 
+                    }else{
+                         header("Location: http://localhost/Virtualizacija/pages/user/user.php"); 
+           
+                    }
+
+                  
                 exit();
             }
             }
