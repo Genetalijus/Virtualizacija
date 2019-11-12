@@ -14,6 +14,10 @@
       <div class="uname ">
         <label for="uname"><b>Username</b></label>
         <input type="text" name="uname" placeholder="uname"/>
+      </div>  
+        <div class="fullname ">
+        <label for="fullname"><b>Full Name</b></label>
+        <input type="text" name="fullname" placeholder="fullname"/>
       </div>
       <div class="email ">
         <label for="email"><b>Email</b></label>
@@ -30,6 +34,10 @@
       <div class="doctorPword">
         <label for="doctorPword"><b>Doctor authentication</b></label>
         <input type="password" name="doctorPword" placeholder="doctorPword"/>
+      </div> 
+      <div class="speciality ">
+        <label for="speciality"><b>Speciality</b></label>
+        <input type="text" name="speciality" placeholder="speciality"/>
       </div>
       <button id="lgnBut" type="submit" name="submit"><p>Login</p></button>
       

@@ -11,7 +11,7 @@ if(!isset($_SESSION['u_username'])){
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
-    <link rel="stylesheet" href="">
+    <link rel="stylesheet" href="./css/doctor.css">
     <title>Document</title>
     
 <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro&display=swap" rel="stylesheet">
@@ -21,7 +21,7 @@ if(!isset($_SESSION['u_username'])){
       <div>
           <?php 
           
-            echo "helloo, ".$_SESSION['u_username'];
+            echo "helloo, ".$_SESSION['fullname'];
           ?>
       </div>
 

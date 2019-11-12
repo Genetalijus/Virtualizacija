@@ -37,8 +37,10 @@ if(isset($_POST['submit'])){
                 $_SESSION['u_id'] = $row['user_id'];
                 $_SESSION['u_username'] = $row['username'];
                 $_SESSION['u_email'] = $row['email'];
-                
-                 
+                  $_SESSION['fullname'] = $row['fullname'];
+                  $_SESSION['speciality'] = $row['speciality'];
+                  $_SESSION['userType'] = $row['userType'];
+                  
                     $user_data = "select * from users where username ='$username'";
                     $userType = mysqli_query($conn, $user_data);
                     $row = mysqli_fetch_assoc($userType);

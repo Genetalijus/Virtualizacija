@@ -13,8 +13,10 @@ if(isset($_POST['submit'])){
     
     $username = $_POST['uname'];
     $email = $_POST['email'];
+    $fullname=$_POST['fullname'];
     $pwd = $_POST['psword'];
     $doctorPword=$_POST['doctorPword'];
+    $speciality=$_POST['speciality'];
     
 
     //Error handlers
@@ -56,15 +58,17 @@ if(isset($_POST['submit'])){
                     //Insert the user to database 
 
                     echo $hashedPwd . $email . $username;
-                    if( $doctorPword=='doktor'){
-                    $sqll = "INSERT INTO users(username,email,user_pwd,userType) VALUES ('$username','$email', '$hashedPwd','doctor')";
+                    if( $doctorPword=='doktor' && $speciality!=""){
+                    $sqll = "INSERT INTO users(username,email,fullname,user_pwd,userType,speciality) VALUES ('$username','$email','$fullname', '$hashedPwd','doctor','$speciality')";
+                    }else if($doctorPword==''){
+                          $sqll = "INSERT INTO users(username,email,fullname,user_pwd,userType,speciality) VALUES ('$username','$email','$fullname', '$hashedPwd','user','pacientas')";
                     }else{
-                          $sqll = "INSERT INTO users(username,email,user_pwd,userType) VALUES ('$username','$email', '$hashedPwd','user')";
+                          header("Location: http://localhost/Virtualizacija/index.php?error");
                     }
                     mysqli_query($conn, $sqll);
+echo $speciality;
 
-
-                    //  header("Location: http://localhost/Virtualizacija/index.php?success");
+                   header("Location: http://localhost/Virtualizacija/index.php?success");
                     exit();
                 }
                 

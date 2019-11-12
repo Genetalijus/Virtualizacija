@@ -33,7 +33,7 @@ body {
   height: 30em;
 }
 
-.cont .uname, .cont .email, .cont .pword, .cont .cnfpword, .cont .doctorPword {
+.cont .uname, .cont .email, .cont .pword, .cont .cnfpword, .cont .doctorPword, .cont .speciality {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -49,7 +49,7 @@ body {
           justify-content: center;
 }
 
-.cont .uname input, .cont .email input, .cont .pword input, .cont .cnfpword input, .cont .doctorPword input {
+.cont .uname input, .cont .email input, .cont .pword input, .cont .cnfpword input, .cont .doctorPword input, .cont .speciality input {
   width: 20em;
   background-color: none;
   border: none;
