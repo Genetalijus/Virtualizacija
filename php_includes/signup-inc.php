@@ -1,12 +1,11 @@
 <?php
 
 include 'dbCon-inc.php';
-$money=1000;
 $conn = mysqli_connect($dbServername, $dbUsername, $dbPassword, $dbName);
-if($conn){
+/*if($conn){
 
   
-}
+}*/
 if(isset($_POST['submit'])){
    
 
