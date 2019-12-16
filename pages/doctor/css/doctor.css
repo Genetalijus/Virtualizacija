@@ -26,10 +26,9 @@ div {
   -webkit-box-direction: normal;
       -ms-flex-direction: column;
           flex-direction: column;
-  overflow-y: scroll;
   border: 1px solid black;
-  width: 20em;
-  height: 30em;
+  width: 29em;
+  height: 40em;
 }
 
 .appointments #appointment {

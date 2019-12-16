@@ -32,112 +32,48 @@ if(!isset($_SESSION['u_username'])){
       <div>
          
       </div>
-      <h1>Appointments</h1>
+      <h1>Darbotvarkė</h1>
       <div class="appointments">
-
-        <div id="appointment">
-        <p>Name</p>
-        <p>Date</p>
-
-        </div>
-       <div id="appointment">
-        <p>Name</p>
-        <p>Date</p>
-        
-        </div>
-        <div id="appointment">
-        <p>Name</p>
-        <p>Date</p>
-        
-        </div>
-        <div id="appointment">
-        <p>Name</p>
-        <p>Date</p>
-        
-        </div>
-        <div id="appointment">
-        <p>Name</p>
-        <p>Date</p>
-        
-        </div>
-        <div id="appointment">
-        <p>Name</p>
-        <p>Date</p>
-        
-        </div>
-        <div id="appointment">
-        <p>Name</p>
-        <p>Date</p>
-        
-        </div>
-        <div id="appointment">
-        <p>Name</p>
-        <p>Date</p>
-        
-        </div>
-        <div id="appointment">
-        <p>Name</p>
-        <p>Date</p>
-        
-        </div>
-        <div id="appointment">
-        <p>Name</p>
-        <p>Date</p>
-        
-        </div>
-        <div id="appointment">
-        <p>Name</p>
-        <p>Date</p>
-        
-        </div>
-        <div id="appointment">
-        <p>Name</p>
-        <p>Date</p>
-        
-        </div>
-      </div>
-     
-      <h1>Daktarai</h1>
-
-      <div class="doctors">
-          <form action="doctor.php" method="POST">
-              <input type="text" id="lg_remember" name="result" />
-              <input type="submit">
-          </form>
-        <div class="doctor">
-          <p>Vardas</p>
-          <p>Scecialybe</p>
-        </div>
-
-         <?php 
+          <?php
 
 
 
-      $id=$_SESSION['u_id'];
-      if($_POST['result'] != null){
-      $sql = "SELECT * FROM users WHERE userType='doctor' and fullname like '%{$_POST['result']}%' or fullname like '{$_POST['result']}%' or fullname like '%{$_POST['result']}'";
-      }else{
-         $sql = "SELECT * FROM users WHERE userType='doctor'";
-      }
-         
+
+              $sql = "SELECT * FROM appointments WHERE dname='{$row['fullname']}' ";
+
+
           $result = mysqli_query($conn, $sql);
+          $resultCheck = mysqli_num_rows($result);
+
           $row = mysqli_fetch_assoc($result);
-         $projects = array();
-       while ($project =  mysqli_fetch_assoc($result))
-    {
-        $projects[] = $project;
-    }
-foreach ($projects as $project)
-    {
-        echo "  <div class='doctor'>
-          <p>{$project['fullname']}</p>
-          <p>{$project['speciality']}</p>
+          $projects = array();
+          while ($project =  mysqli_fetch_assoc($result))
+          {
+              $projects[] = $project;
+          }
+          foreach ($projects as $project)
+          {
+              echo "  <div id='appointment'>
+          <p>{$project['pname']}</p>
+          <p>{$project['month']}</p>
+          <p>{$project['monthDay']}</p>
         </div>";
 
-    }
-    $_POST['result']=null;
-      ?>
+          }
+
+          ?>
+
+
+
+
+
       </div>
+
+  <form  action='../../php_includes/logout-inc.php' method='POST'>
+      <input type="submit" value="Atsijungti" name="submit">
+  </form>
+
+
 
 
     

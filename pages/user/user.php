@@ -36,7 +36,18 @@ if (!isset($_SESSION['u_username'])) {
           <p class='name'>$user[fullname]</p>
           <p class='speciality'>$user[speciality]&nbsp&nbsp&nbsp&nbsp
               Pasirinkite data:
-              </p>
+              </p>            <select name='month' id=''>
+                                <option value='' selected>Menuo</option>   
+                                <option value='Gruodis 2019'>Gruodis 2019</option>
+                                <option value='Sausis 2020'>Sausis 2020</option> 
+                                <option value='Vasaris 2020'>Vasaris 2020</option> 
+                                <option value='Kovas 2020'>Kovas 2020</option> 
+                                <option value='Balandis 2020'>Balandis 2020</option> 
+                                <option value='Geguze 2020'>Geguze 2020</option> 
+                                <option value='Birzelis 2020'>Birzelis 2020</option>  
+                                <option value='Liepa 2020'>Liepa 2020</option> 
+                                <option value='Rugpjutis 2020'>Rugpjutis 2020</option>   
+                            </select>
                             <select name='Data' id=''>
                                 <option value='' selected>Data</option>   
                                 <option value='2'>2</option>
@@ -54,7 +65,7 @@ if (!isset($_SESSION['u_username'])) {
                                 <option value='klpd'>Klaipeda</option>    
                             </select>
                             
-                            <input type='submit' value='Užsiregistruoti' name='submitReg' id='play'/>
+                            <button type='submit' name='submitReg' id='play' value='$user[fullname]' placeholder='submit'>Registruoti</button>
                             </form>
         </div>
             
@@ -63,11 +74,14 @@ if (!isset($_SESSION['u_username'])) {
 
                 if (isset($_POST['submitReg']) && $_POST['Data'] !='' && $_POST['Miestas'] !='') {
                     $data = $_POST['Data'];
-                    $queryR = "INSERT INTO appointments(dname, pname, monthDay) VALUES ('$user[fullname]', '$pName', '$data')";
+                    $month =$_POST['month'];
+                    $name=$_POST['submitReg'];
+                    $queryR = "INSERT INTO appointments(month,dname, pname, monthDay) VALUES ('$month','$name', '$pName', '$data')";
+                    $result = mysqli_query($conn, $queryR);
                     echo '<script language="javascript">';
                     echo 'alert("Sėkmingai užsiregistravote")';
                     echo '</script>';
-                    
+                    $_POST['Data']=null;
                 }
             }
             ?>
