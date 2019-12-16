@@ -1,5 +1,5 @@
 <?php
-    
+$webserverIP='localhost';
 $dbServername = "localhost";
 $dbUsername = "root";
 $dbPassword = "";

@@ -2,7 +2,7 @@
 <?php
 session_start();
 if (!isset($_SESSION['u_username'])) {
-    header("Location:index.php");
+    header("Location: http://".$webserverIP."/Virtualizacija/index.php?");
 }
 ?>
 <!DOCTYPE html>
@@ -29,6 +29,7 @@ if (!isset($_SESSION['u_username'])) {
                 $array[] = $row;
             }
             $pName = $_SESSION["u_username"];
+            echo "<h1>".$pName."</h1>";
             foreach ($array as $user) {
                 echo " 
          <div class='doctor'>
@@ -90,7 +91,41 @@ if (!isset($_SESSION['u_username'])) {
             </form>
 
         </div>
+        <div class="appointments">
+            <h1>Datos</h1>
+            <?php
 
+
+
+
+            $sql = "SELECT * FROM appointments WHERE pname='$pName' ";
+
+
+            $result = mysqli_query($conn, $sql);
+            $resultCheck = mysqli_num_rows($result);
+
+            $row = mysqli_fetch_assoc($result);
+            $projects = array();
+            while ($project =  mysqli_fetch_assoc($result))
+            {
+                $projects[] = $project;
+            }
+            foreach ($projects as $project)
+            {
+                echo "  <div id='appointment'>
+          <p>Dr: {$project['dname']}</p>
+          <p>{$project['month']}</p>
+          <p>{$project['monthDay']}d.</p>
+          <form  action='../../php_includes/removeAppointment.php' method='POST'>
+          <button type='submit' name='appID' id='play' value='{$project['id']}' placeholder='submit'>X</button>
+          </form>
+        </div>";
+
+            }
+
+            ?>
+
+        </div>
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
     </body>
 </html>

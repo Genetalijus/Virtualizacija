@@ -23,17 +23,17 @@ if(isset($_POST['submit'])){
     
     if(empty($username) || empty($email) || empty($pwd)){
          
-         header("Location: http://localhost/Virtualizacija/index.php?empty");
+         header("Location: http://".$webserverIP."/Virtualizacija/index.php?empty");
          exit();
     }else{
         // Check if input characters are valid
         if(!preg_match("/^[a-zA-Z]*$/", $username)){
-            header("Location: http://localhost/Virtualizacija/index.php?invalid");
+            header("Location: http://".$webserverIP."/Virtualizacija/index.php?invalid");
             exit();
         }else{
             //check email validation
             if(!filter_var($email, FILTER_VALIDATE_EMAIL)){
-                header("Location: http://localhost/Virtualizacija/index.php?invalid");
+                header("Location: http://".$webserverIP."/Virtualizacija/index.php?invalid");
                exit();
             }else{
                 //check if username is not taken
@@ -48,7 +48,7 @@ if(isset($_POST['submit'])){
                 $resultCheckEmail = mysqli_num_rows($resultEmail);
                 
                 if($resultCheck > 0 || $resultCheckEmail>0){ 
-                    header("Location: http://localhost/Virtualizacija/index.php?taken");
+                    header("Location: http://".$webserverIP."/Virtualizacija/index.php?taken");
                     exit();
                 }else{  
                  
@@ -62,12 +62,12 @@ if(isset($_POST['submit'])){
                     }else if($doctorPword==''){
                           $sqll = "INSERT INTO users(username,email,fullname,user_pwd,userType,speciality) VALUES ('$username','$email','$fullname', '$hashedPwd','user','pacientas')";
                     }else{
-                          header("Location: http://localhost/Virtualizacija/index.php?error");
+                          header("Location: http://".$webserverIP."/Virtualizacija/index.php?error");
                     }
                     mysqli_query($conn, $sqll);
 echo $speciality;
 
-                   header("Location: http://localhost/Virtualizacija/index.php?success");
+                   header("Location: http://".$webserverIP."/Virtualizacija/index.php?success");
                     exit();
                 }
                 
@@ -77,7 +77,7 @@ echo $speciality;
     
     
 } else {
-   header("Location: http://localhost/Virtualizacija/index.php?error");
+   header("Location: http://".$webserverIP."/Virtualizacija/index.php?error");
     exit();
 }
 

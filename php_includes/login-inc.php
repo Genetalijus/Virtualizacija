@@ -15,14 +15,14 @@ if(isset($_POST['submit'])){
     //check if inputs are empty
     
     if(empty($username) || empty($pwd)){
-          header("Location: http://localhost/Virtualizacija/index.php?empty");
+          header("Location: http://".$webserverIP."/Virtualizacija/index.php?empty");
          exit();
     } else {
         $sql = "SELECT * FROM users WHERE username='$username'";
         $result = mysqli_query($conn, $sql);
         $resultCheck = mysqli_num_rows($result);
         if($resultCheck < 1){
-            header("Location: http://localhost/Virtualizacija/index.php?error1");
+            header("Location: http://".$webserverIP."/Virtualizacija/index.php?error1");
             exit();  
         
     } else {
@@ -48,9 +48,9 @@ if(isset($_POST['submit'])){
                     $type = $row['userType'];
 
                     if($type == 'doctor'){
-                        header("Location: http://localhost/Virtualizacija/pages/doctor/doctor.php"); 
+                        header("Location: http://".$webserverIP."/Virtualizacija/pages/doctor/doctor.php");
                     }else{
-                         header("Location: http://localhost/Virtualizacija/pages/user/user.php"); 
+                         header("Location: http://".$webserverIP."/Virtualizacija/pages/user/user.php");
            
                     }
 
@@ -61,7 +61,7 @@ if(isset($_POST['submit'])){
         }
     }
 }else{
-   header("Location: http://localhost/Virtualizacija/index.php?errorrs");
+   header("Location: http://".$webserverIP."/Virtualizacija/index.php?errorrs");
   exit();  
 }
 

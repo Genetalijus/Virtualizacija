@@ -23,6 +23,7 @@ INSERT INTO `users` (`user_id`, `username`, `email`, `fullname`, `user_pwd`, `us
 
 
 CREATE TABLE `appointments` (
+ `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT primary key,
   `month` varchar(255) NOT NULL,
   `dname` varchar(255) NOT NULL,
   `pname` varchar(255) NOT NULL,

@@ -2,7 +2,7 @@
 <?php
 session_start();
 if(!isset($_SESSION['u_username'])){
-   header("Location:index.php");
+    header("Location: http://".$webserverIP."/Virtualizacija/index.php?");
 }
 ?>
 <!DOCTYPE html>
