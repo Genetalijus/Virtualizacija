@@ -1,0 +1,37 @@
+<h1>Pacientai</h1>
+<div class="patients">
+<form action="doctor.php" method="POST">
+              <input type="text" name="patient" />
+              <input type="submit">
+          </form>
+<?php
+echo $_POST['patient'];
+
+
+
+if($_POST['patient'] != null){
+
+$sqlPatient = "SELECT * FROM users WHERE userType = 'user' and fullname like '%{$_POST['patient']}%'";
+}else{
+   $sqlPatient = "SELECT * FROM users WHERE userType='user'";
+}
+
+    $result = mysqli_query($conn, $sqlPatient);
+    $row = mysqli_fetch_assoc($result);
+   $projects = array();
+ while ($project =  mysqli_fetch_assoc($result))
+{
+  $projects[] = $project;
+}
+foreach ($projects as $project)
+{
+  echo "  <div class='patient'>
+    <p>{$project['fullname']}</p>
+    <p>{$project['speciality']}</p>
+  </div>";
+
+}
+$_POST['patient']=null;
+?>
+
+</div>
